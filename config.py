@@ -21,7 +21,7 @@ class Config(object):
     # Use os.environ.get to pull the values you saved in the Azure Portal
     CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
-    AUTHORITY = "https://login.microsoftonline.com/common"
+    AUTHORITY = "https://login.microsoftonline.com/e489c7f8-6acf-4a77-90ec-ecce58895509"
 
     CLIENT_ID = os.environ.get('CLIENT_ID')
 
