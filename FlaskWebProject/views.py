@@ -65,7 +65,7 @@ def login():
     auth_url = msal_app.get_authorization_request_url(
         scopes=Config.SCOPE,
         state=session["state"],
-        redirect_uri=url_for('get_a_token', _external=True),
+        redirect_uri=url_for('get_a_token', _external=True, _scheme="https"),
     )
     return redirect(auth_url)
 
@@ -82,7 +82,7 @@ def get_a_token():
         result = msal_app.acquire_token_by_authorization_code(
             code=request.args.get('code'),
             scopes=Config.SCOPE,
-            redirect_uri=url_for('get_a_token', _external=True),
+            redirect_uri=url_for('get_a_token', _external=True, _scheme="https"),
         )
         if not result or "error" in result:
             logging.warning("Invalid login attempt")
